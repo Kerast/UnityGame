@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System.Linq;  // besoin de ElementAt pour les listes;
 using System.Collections;
 using System.Collections.Generic;

@@ -8,7 +8,7 @@ public class GameManager_Assets : MonoBehaviour {
 
 	public List<GameObject> Weapons;
 	public List<GameObject> Armors;
-
+	public GameObject PlayerDummy;
 
 	void Awake()
 	{
@@ -37,7 +37,7 @@ public class GameManager_Assets : MonoBehaviour {
 	public void EquipWeapon(Weapon weapon)
 	{
 
-		Player_Equipment playerequip = GameObject.Find ("Player_Dummy").GetComponent<Player_Equipment>();
+		Player_Equipment playerequip = PlayerDummy.GetComponent<Player_Equipment>();
 		DetachSlot (playerequip.weaponNode);
 	
 		GameObject wep = Instantiate(Weapons.Find(i => i.GetComponent<Weapon>().weapon.Name == weapon.weapon.Name ));
@@ -49,7 +49,7 @@ public class GameManager_Assets : MonoBehaviour {
 
 	public void EquipArmor(Armor armor)
 	{
-		Player_Equipment playerequip = GameObject.Find ("Player_Dummy").GetComponent<Player_Equipment>();
+		Player_Equipment playerequip = PlayerDummy.GetComponent<Player_Equipment>();
 		GameObject slot = null;
 		if (armor.armor.EquipmentSlot == EquipmentSlot.Head) 
 			slot = playerequip.helmetNode;

@@ -32,8 +32,8 @@ namespace TheGame.ItemSystem.Editor
 
 		void OnEnable()
 		{
-			if(qualityDatabase == null)
-				qualityDatabase = ISQualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
+//			if(qualityDatabase == null)
+//				qualityDatabase = ISQualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
 		}
 
 		void OnGUI()

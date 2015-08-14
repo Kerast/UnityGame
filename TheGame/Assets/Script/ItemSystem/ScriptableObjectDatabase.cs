@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,13 +15,13 @@ namespace TheGame
 		public void Add(T item)
 		{
 			database.Add (item);
-			EditorUtility.SetDirty (this);
+			//EditorUtility.SetDirty (this);
 		}
 		
 		public void Insert(int index, T item)
 		{
 			database.Insert (index, item);
-			EditorUtility.SetDirty (this);
+			//EditorUtility.SetDirty (this);
 		}
 
 
@@ -31,13 +30,13 @@ namespace TheGame
 		public void Remove(T item)
 		{
 			database.Remove (item);
-			EditorUtility.SetDirty (this);
+			//EditorUtility.SetDirty (this);
 		}
 		
 		public void Remove(int index)
 		{
 			database.RemoveAt (index);
-			EditorUtility.SetDirty (this);
+			//EditorUtility.SetDirty (this);
 		}
 		
 		public int Count
@@ -54,12 +53,12 @@ namespace TheGame
 		public void Replace(int index, T item)
 		{
 			database [index] = item;
-			EditorUtility.SetDirty (this);
+			//EditorUtility.SetDirty (this);
 			
 		}
 
 
-		public static U GetDatabase<U>(string dbPath, string dbName) where U : ScriptableObject
+		/*public static U GetDatabase<U>(string dbPath, string dbName) where U : ScriptableObject
 		{
 			string dbFullPath = @"Assets/" + dbPath+ "/" + dbName;
 
@@ -79,9 +78,9 @@ namespace TheGame
 				AssetDatabase.Refresh();*/
 				
 				
-			}
+			//}
 
-			return db;
-		}
+			/*return db;
+		}*/
 	}
 }

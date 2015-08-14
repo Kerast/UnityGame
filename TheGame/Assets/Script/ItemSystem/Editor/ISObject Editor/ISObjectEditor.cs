@@ -29,8 +29,8 @@ namespace TheGame.ItemSystem.Editor
 
 		void OnEnable()
 		{
-			if(database == null)
-				database = ISWeaponDatabase.GetDatabase<ISWeaponDatabase> (DATABASE_PATH, DATABASE_NAME);
+			//if(database == null)
+//				database = ISWeaponDatabase.GetDatabase<ISWeaponDatabase> (DATABASE_PATH, DATABASE_NAME);
 		}
 
 		void OnGUI()

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class MainMenu_ButtonCharacter : MonoBehaviour {
 
 	public GameObject MenuCharacter;
+	public GameObject CanvasCharacter;
 
 	bool MoveTo = false;
 	Vector3 refer = Vector3.zero;
@@ -30,6 +31,7 @@ public class MainMenu_ButtonCharacter : MonoBehaviour {
 		GameObject.Find ("Camera").transform.position = GameObject.Find ("Waypoint Character").transform.position;
 		GameObject.Find ("Camera").transform.rotation = GameObject.Find ("Waypoint Character").transform.rotation;
 		MenuCharacter.SetActive (true);
+		CanvasCharacter.SetActive (true);
 		MoveTo = true;
 	}
 }
