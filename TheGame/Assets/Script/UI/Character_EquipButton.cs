@@ -12,7 +12,11 @@ public class Character_EquipButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		itemPreview = GameObject.Find ("itemPreview");
+		if (GameObject.Find ("ItemPreview").transform.childCount > 0) 
+		{
+			itemPreview = GameObject.Find ("ItemPreview").transform.GetChild(0).gameObject;
+		}
+
 		if (itemPreview != null) 
 		{
 			GetComponent<Image> ().color = new Color (255, 255, 255, 255);
@@ -26,13 +30,7 @@ public class Character_EquipButton : MonoBehaviour {
 	void EquipItem()
 	{
 		GameManager_Assets assets = GameObject.Find ("GameManager").GetComponent<GameManager_Assets> ();
-		if (itemPreview.GetComponent<Weapon> () != null) 
-		{
-			assets.EquipWeapon(itemPreview.GetComponent<Weapon> ());
-		}
-		else if(itemPreview.GetComponent<Armor> () != null)
-		{
-			assets.EquipArmor(itemPreview.GetComponent<Armor> ());
-		}
+		assets.EquipItem(itemPreview.GetComponent<Item> ());
+		
 	}
 }

@@ -6,21 +6,21 @@ using TheGame.ItemSystem;
 
 public class GameManager_Assets : MonoBehaviour {
 
-	public List<GameObject> Weapons;
-	public List<GameObject> Armors;
+	public List<GameObject> Items;
 	public GameObject PlayerDummy;
 
 	void Awake()
 	{
-		EquipWeapon (Weapons.ElementAt(0).GetComponent<Weapon>());
-		EquipArmor (Armors.ElementAt (0).GetComponent<Armor> ());
-		EquipArmor (Armors.ElementAt (1).GetComponent<Armor> ());
-		EquipArmor (Armors.ElementAt (2).GetComponent<Armor> ());
-		EquipArmor (Armors.ElementAt (3).GetComponent<Armor> ());
-		EquipArmor (Armors.ElementAt (4).GetComponent<Armor> ());
-		EquipArmor (Armors.ElementAt (5).GetComponent<Armor> ());
-		EquipArmor (Armors.ElementAt (6).GetComponent<Armor> ());
-		EquipArmor (Armors.ElementAt (7).GetComponent<Armor> ());
+		//Tout nu
+		EquipItem (Items.ElementAt (0).GetComponent<Item> ());
+		EquipItem (Items.ElementAt (1).GetComponent<Item> ());
+		EquipItem (Items.ElementAt (2).GetComponent<Item> ());
+		EquipItem (Items.ElementAt (3).GetComponent<Item> ());
+		EquipItem (Items.ElementAt (4).GetComponent<Item> ());
+		EquipItem (Items.ElementAt (5).GetComponent<Item> ());
+		EquipItem (Items.ElementAt (6).GetComponent<Item> ());
+		EquipItem (Items.ElementAt (7).GetComponent<Item> ());
+		EquipItem (Items.ElementAt (8).GetComponent<Item> ());
 
 	}
 
@@ -33,52 +33,38 @@ public class GameManager_Assets : MonoBehaviour {
 	void Update () {
 	
 	}
-
-	public void EquipWeapon(Weapon weapon)
-	{
-
-		Player_Equipment playerequip = PlayerDummy.GetComponent<Player_Equipment>();
-		DetachSlot (playerequip.weaponNode);
 	
-		GameObject wep = Instantiate(Weapons.Find(i => i.GetComponent<Weapon>().weapon.Name == weapon.weapon.Name ));
-		wep.transform.parent = playerequip.weaponNode.transform;
-		wep.transform.position = playerequip.weaponNode.transform.position;
-		wep.transform.rotation = playerequip.weaponNode.transform.rotation;
 
-	}
-
-	public void EquipArmor(Armor armor)
+	public void EquipItem(Item item)
 	{
 		Player_Equipment playerequip = PlayerDummy.GetComponent<Player_Equipment>();
 		GameObject slot = null;
-		if (armor.armor.EquipmentSlot == EquipmentSlot.Head) 
+		if (item.item.EquipmentSlot == EquipmentSlot.Head) 
 			slot = playerequip.helmetNode;
-		else if (armor.armor.EquipmentSlot == EquipmentSlot.Torse) 
+		else if (item.item.EquipmentSlot == EquipmentSlot.Torse) 
 			slot = playerequip.torseNode;
-		else if (armor.armor.EquipmentSlot == EquipmentSlot.Belt) 
+		else if (item.item.EquipmentSlot == EquipmentSlot.Belt) 
 			slot = playerequip.beltNode;
-		else if (armor.armor.EquipmentSlot == EquipmentSlot.ShoulderR) 
+		else if (item.item.EquipmentSlot == EquipmentSlot.ShoulderR) 
 			slot = playerequip.shoulderRNode;
-		else if (armor.armor.EquipmentSlot == EquipmentSlot.ShoulderL) 
+		else if (item.item.EquipmentSlot == EquipmentSlot.ShoulderL) 
 			slot = playerequip.shoulderLNode;
-		else if (armor.armor.EquipmentSlot == EquipmentSlot.GloveL) 
+		else if (item.item.EquipmentSlot == EquipmentSlot.GloveL) 
 			slot = playerequip.gloveLNode;
-		else if (armor.armor.EquipmentSlot == EquipmentSlot.GloveR) 
+		else if (item.item.EquipmentSlot == EquipmentSlot.GloveR) 
 			slot = playerequip.gloveRNode;
-		else if (armor.armor.EquipmentSlot == EquipmentSlot.Legs) 
+		else if (item.item.EquipmentSlot == EquipmentSlot.Legs) 
 			slot = playerequip.legsNode;
+		else if (item.item.EquipmentSlot == EquipmentSlot.Weapon) 
+			slot = playerequip.weaponNode;
 	
-
-
-
 		DetachSlot (slot);
 		
 
-		GameObject arm = Instantiate(Armors.Find(i => i.GetComponent<Armor>().armor.Identity == armor.armor.Identity ));
-		arm.transform.parent = slot.transform;
-		arm.transform.position = slot.transform.position;
-		//arm.transform.rotation = new Quaternion ();
-		arm.transform.localScale = slot.transform.localScale;
+		GameObject itemTemp = Instantiate(Items.Find(i => i.GetComponent<Item>().item.Identity == item.item.Identity ));
+		itemTemp.transform.parent = slot.transform;
+		itemTemp.transform.position = slot.transform.position;
+		itemTemp.transform.localScale = slot.transform.localScale;
 	}
 	
 	void DetachSlot(GameObject slot)

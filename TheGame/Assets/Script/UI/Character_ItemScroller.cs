@@ -18,7 +18,7 @@ public class Character_ItemScroller : MonoBehaviour {
 	
 	}
 
-	public void LoadItems(EquipmentSlot equipmentslot)
+	public void LoadItems(EquipmentSlot equipmentSlot)
 	{
 		for (int i =0; i < GameObject.Find("ItemScrollerPanel").transform.childCount; i++) 
 		{
@@ -28,42 +28,21 @@ public class Character_ItemScroller : MonoBehaviour {
 
 		GameObject.Find ("ItemScrollerPanel").transform.DetachChildren ();
 
-		if (equipmentslot == EquipmentSlot.Weapon) {
-			LoadWeapons ();
-		} else 
-		{
-			LoadArmors (equipmentslot);
-		}
-	}
-
-	void LoadWeapons ()
-	{
-		List<GameObject> weapons = GameObject.Find ("GameManager").GetComponent<GameManager_Assets> ().Weapons;
-
-		for (int i = 0; i < weapons.Count; i++) 
-		{
-			GameObject button = Instantiate(Button);
-			button.transform.SetParent(SrollPanel.transform);
-			button.transform.GetChild(0).GetComponent<Text>().text = weapons[i].GetComponent<Weapon>().weapon.Identity;
-			button.GetComponent<Character_ItemScrollerButon>().itemPreview = weapons[i];
-		}
-	}
-
-
-	void LoadArmors (EquipmentSlot equipmentSlot)
-	{
-		List<GameObject> armors = GameObject.Find ("GameManager").GetComponent<GameManager_Assets> ().Armors;
+		List<GameObject> items = GameObject.Find ("GameManager").GetComponent<GameManager_Assets> ().Items;
 		
-		for (int i = 0; i < armors.Count; i++) 
+		for (int i = 0; i < items.Count; i++) 
 		{
-			if(armors[i].GetComponent<Armor>().armor.EquipmentSlot == equipmentSlot)
+			if(items[i].GetComponent<Item>().item.EquipmentSlot == equipmentSlot)
 			{
 				GameObject button = Instantiate(Button);
 				button.transform.SetParent(SrollPanel.transform);
-				button.transform.GetChild(0).GetComponent<Text>().text = armors[i].GetComponent<Armor>().armor.Identity;
-				button.GetComponent<Character_ItemScrollerButon>().itemPreview = armors[i];
+				button.transform.GetChild(0).GetComponent<Text>().text = items[i].GetComponent<Item>().item.Identity;
+				button.GetComponent<Character_ItemScrollerButon>().itemPreview = items[i];
 			}
-
+			
 		}
 	}
+
+	
+
 }
