@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using TheGame.ItemSystem;
+using TheGame.StatSystem;
 
 namespace TheGame.ItemSystem
 {
@@ -13,8 +15,10 @@ namespace TheGame.ItemSystem
 		EquipmentSlot EquipmentSlot{ get; set; }
 		
 		
-		int Damage { get; set; }
-		int Defense { get; set; }
+		List<Stat> Stats { get; set; }
+		List<GameObject> Skins { get; set; }
+
+
 		
 	}
 }

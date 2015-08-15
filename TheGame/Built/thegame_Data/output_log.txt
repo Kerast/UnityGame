@@ -16,7 +16,7 @@ Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Bui
 Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.129 seconds
+- Completed reload, in  0.172 seconds
 desktop: 3840x2160 60Hz; virtual: 7680x2376 at -3840,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,5 +24,5 @@ desktop: 3840x2160 60Hz; virtual: 7680x2376 at -3840,0
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 947c -> priority: 1 
-  Thread -> id: af14 -> priority: 1 
+  Thread -> id: cbc4 -> priority: 1 
+  Thread -> id: 95c8 -> priority: 1 

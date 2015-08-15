@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using TheGame.ItemSystem;
+using TheGame.StatSystem;
 
 namespace TheGame.ItemSystem
 {
@@ -12,11 +14,13 @@ namespace TheGame.ItemSystem
 		[SerializeField] Sprite _icon ;
 		[SerializeField] ISQuality _quality ;
 		[SerializeField] EquipmentSlot _equipmentSlot;
-		
-		
-		[SerializeField] int _damage ;
-		[SerializeField] int _defense ;
 
+		[SerializeField] List< Stat> _stats;
+		[SerializeField] List<GameObject> _skins;
+
+		
+
+	
 		#region IISItem implementation
 
 		public string Identity {
@@ -64,23 +68,26 @@ namespace TheGame.ItemSystem
 			}
 		}
 
-		public int Damage {
+		public List<Stat> Stats{
 			get {
-				return _damage;
+				return _stats;
 			}
 			set {
-				_damage = value;
+				_stats = value;
 			}
 		}
 
-		public int Defense {
+		public List<GameObject> Skins{
 			get {
-				return _defense;
+				return _skins;
 			}
 			set {
-				_defense = value;
+				_skins = value;
 			}
 		}
+
+
+
 
 		#endregion
 

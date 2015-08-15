@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using TheGame.ItemSystem;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ public class Character_ItemScroller : MonoBehaviour {
 
 	public void LoadItems(EquipmentSlot equipmentSlot)
 	{
-		for (int i =0; i < GameObject.Find("ItemScrollerPanel").transform.childCount; i++) 
+		/*for (int i =0; i < GameObject.Find("ItemScrollerPanel").transform.childCount; i++) 
 		{
 			GameObject child = GameObject.Find("ItemScrollerPanel").transform.GetChild(i).gameObject; 
 			Destroy(child);
@@ -28,7 +28,7 @@ public class Character_ItemScroller : MonoBehaviour {
 
 		GameObject.Find ("ItemScrollerPanel").transform.DetachChildren ();
 
-		List<GameObject> items = GameObject.Find ("GameManager").GetComponent<GameManager_Assets> ().Items;
+		List<GameObject> items = GameObject.Find ("GameManager").GetComponent<GameManager_Assets> ().Items2;
 		
 		for (int i = 0; i < items.Count; i++) 
 		{
@@ -40,7 +40,7 @@ public class Character_ItemScroller : MonoBehaviour {
 				button.GetComponent<Character_ItemScrollerButon>().itemPreview = items[i];
 			}
 			
-		}
+		}*/
 	}
 
 	

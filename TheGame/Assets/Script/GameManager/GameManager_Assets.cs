@@ -6,21 +6,22 @@ using TheGame.ItemSystem;
 
 public class GameManager_Assets : MonoBehaviour {
 
-	public List<GameObject> Items;
+	//public List<GameObject> Items2;
+	public List<ISItem> Items;
 	public GameObject PlayerDummy;
 
 	void Awake()
 	{
 		//Tout nu
-		EquipItem (Items.ElementAt (0).GetComponent<Item> ());
-		EquipItem (Items.ElementAt (1).GetComponent<Item> ());
-		EquipItem (Items.ElementAt (2).GetComponent<Item> ());
-		EquipItem (Items.ElementAt (3).GetComponent<Item> ());
-		EquipItem (Items.ElementAt (4).GetComponent<Item> ());
-		EquipItem (Items.ElementAt (5).GetComponent<Item> ());
-		EquipItem (Items.ElementAt (6).GetComponent<Item> ());
-		EquipItem (Items.ElementAt (7).GetComponent<Item> ());
-		EquipItem (Items.ElementAt (8).GetComponent<Item> ());
+		EquipItem (Items.ElementAt(0));
+		EquipItem (Items.ElementAt (1));
+		EquipItem (Items.ElementAt (2));
+		EquipItem (Items.ElementAt (3));
+		EquipItem (Items.ElementAt (4));
+		EquipItem (Items.ElementAt (5));
+		EquipItem (Items.ElementAt (6));
+		EquipItem (Items.ElementAt (7));
+		EquipItem (Items.ElementAt (8));
 
 	}
 
@@ -35,33 +36,33 @@ public class GameManager_Assets : MonoBehaviour {
 	}
 	
 
-	public void EquipItem(Item item)
+	public void EquipItem(ISItem item)
 	{
 		Player_Equipment playerequip = PlayerDummy.GetComponent<Player_Equipment>();
 		GameObject slot = null;
-		if (item.item.EquipmentSlot == EquipmentSlot.Head) 
+		if (item.EquipmentSlot == EquipmentSlot.Head) 
 			slot = playerequip.helmetNode;
-		else if (item.item.EquipmentSlot == EquipmentSlot.Torse) 
+		else if (item.EquipmentSlot == EquipmentSlot.Torse) 
 			slot = playerequip.torseNode;
-		else if (item.item.EquipmentSlot == EquipmentSlot.Belt) 
+		else if (item.EquipmentSlot == EquipmentSlot.Belt) 
 			slot = playerequip.beltNode;
-		else if (item.item.EquipmentSlot == EquipmentSlot.ShoulderR) 
+		else if (item.EquipmentSlot == EquipmentSlot.ShoulderR) 
 			slot = playerequip.shoulderRNode;
-		else if (item.item.EquipmentSlot == EquipmentSlot.ShoulderL) 
+		else if (item.EquipmentSlot == EquipmentSlot.ShoulderL) 
 			slot = playerequip.shoulderLNode;
-		else if (item.item.EquipmentSlot == EquipmentSlot.GloveL) 
+		else if (item.EquipmentSlot == EquipmentSlot.GloveL) 
 			slot = playerequip.gloveLNode;
-		else if (item.item.EquipmentSlot == EquipmentSlot.GloveR) 
+		else if (item.EquipmentSlot == EquipmentSlot.GloveR) 
 			slot = playerequip.gloveRNode;
-		else if (item.item.EquipmentSlot == EquipmentSlot.Legs) 
+		else if (item.EquipmentSlot == EquipmentSlot.Legs) 
 			slot = playerequip.legsNode;
-		else if (item.item.EquipmentSlot == EquipmentSlot.Weapon) 
+		else if (item.EquipmentSlot == EquipmentSlot.Weapon) 
 			slot = playerequip.weaponNode;
 	
 		DetachSlot (slot);
 		
 
-		GameObject itemTemp = Instantiate(Items.Find(i => i.GetComponent<Item>().item.Identity == item.item.Identity ));
+		GameObject itemTemp = Instantiate(Items.Find(i => i.Identity == item.Identity ).Skins[0]);
 		itemTemp.transform.parent = slot.transform;
 		itemTemp.transform.position = slot.transform.position;
 		itemTemp.transform.localScale = slot.transform.localScale;
