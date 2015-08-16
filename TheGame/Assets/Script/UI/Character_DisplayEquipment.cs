@@ -10,19 +10,29 @@ public class Character_DisplayEquipment : MonoBehaviour {
 	void Start () {
 		
 	}
+
+
+
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject[] nodes = GameObject.FindGameObjectsWithTag ("ItemNode");
-		GameObject[] slots = GameObject.FindGameObjectsWithTag ("ItemSlot");
-		List<GameObject> Nodes = new List<GameObject> ();
-		List<GameObject> Slots = new List<GameObject> ();
+		
+
+        List<ISItem> PlayerItems = new List<ISItem>();
+        Player_Equipment playerequipment = GameObject.Find("Player_Dummy").GetComponent<Player_Equipment>();
+        PlayerItems.Add(playerequipment.Weapon);
+        PlayerItems.Add(playerequipment.Helmet);
+        PlayerItems.Add(playerequipment.Torse);
+        PlayerItems.Add(playerequipment.Belt);
+        PlayerItems.Add(playerequipment.ShoulderR);
+        PlayerItems.Add(playerequipment.ShoulderL);
+        PlayerItems.Add(playerequipment.GloveR);
+        PlayerItems.Add(playerequipment.GloveL);
+        PlayerItems.Add(playerequipment.Legs);
 
 
-		foreach (var node in nodes)
-		{
-			Nodes.Add(node);
-		}
+        GameObject[] slots = GameObject.FindGameObjectsWithTag("ItemSlot");
+        List<GameObject> Slots = new List<GameObject> ();
 
 		foreach (var slot in slots)
 		{
@@ -30,11 +40,17 @@ public class Character_DisplayEquipment : MonoBehaviour {
 		}
 
 
-		for(int i = 0; i < Nodes.Count;  i++)
+		for(int i = 0; i < PlayerItems.Count;  i++)
 		{
 
-			Image slotImage = Slots.Find(j => j.GetComponent<Character_ItemSlot>().equipmentSlot == Nodes[i].GetComponent<Character_ItemNode>().EquipmentSlot).transform.GetChild(0).GetComponent<Image>();
-			slotImage.sprite = Nodes[i].transform.GetChild(0).GetComponent<Item>().item.Icon;
-		}
+			Image slotImage = Slots.Find(j => j.GetComponent<Character_ItemSlot>().equipmentSlot == PlayerItems[i].EquipmentSlot).transform.GetChild(0).GetComponent<Image>();
+            if(PlayerItems[i].Icon != null)
+                slotImage.sprite = PlayerItems[i].Icon;
+           
+        }
+
+
+
+
 	}
 }

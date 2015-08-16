@@ -17,6 +17,7 @@ namespace TheGame.ItemSystem
 
 		[SerializeField] List< Stat> _stats;
 		[SerializeField] List<GameObject> _skins;
+        [SerializeField] GameObject _selectedSkin;
 
 		
 
@@ -86,13 +87,25 @@ namespace TheGame.ItemSystem
 			}
 		}
 
+        public GameObject SelectedSkin
+        {
+            get
+            {
+                return _selectedSkin;
+            }
+            set
+            {
+                _selectedSkin = value;
+            }
+        }
 
 
 
-		#endregion
+
+        #endregion
 
 
 
 
-	}
+    }
 }

@@ -17,9 +17,10 @@ namespace TheGame.ItemSystem
 		
 		List<Stat> Stats { get; set; }
 		List<GameObject> Skins { get; set; }
+        GameObject  SelectedSkin { get; set; }
 
 
-		
-	}
+
+    }
 }
 

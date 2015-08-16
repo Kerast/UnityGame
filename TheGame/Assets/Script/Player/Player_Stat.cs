@@ -30,15 +30,15 @@ public class Player_Stat : MonoBehaviour {
 	void Update () {
 
 		ResetStat();
-		ActualiseItem (Equipment.weaponNode.transform.GetChild(0).GetComponent<Item>());
-		ActualiseItem (Equipment.helmetNode.transform.GetChild(0).GetComponent<Item>());
-		ActualiseItem (Equipment.torseNode.transform.GetChild(0).GetComponent<Item>());
-		ActualiseItem (Equipment.beltNode.transform.GetChild(0).GetComponent<Item>());
-		ActualiseItem (Equipment.shoulderLNode.transform.GetChild(0).GetComponent<Item>());
-		ActualiseItem (Equipment.shoulderRNode.transform.GetChild(0).GetComponent<Item>());
-		ActualiseItem (Equipment.gloveLNode.transform.GetChild(0).GetComponent<Item>());
-		ActualiseItem (Equipment.gloveRNode.transform.GetChild(0).GetComponent<Item>());
-		ActualiseItem (Equipment.legsNode.transform.GetChild(0).GetComponent<Item>());
+		ActualiseItem (Equipment.Weapon);
+		ActualiseItem (Equipment.Helmet);
+		ActualiseItem (Equipment.Torse);
+		ActualiseItem (Equipment.Belt);
+		ActualiseItem (Equipment.ShoulderL);
+		ActualiseItem (Equipment.ShoulderR);
+		ActualiseItem (Equipment.GloveL);
+		ActualiseItem (Equipment.GloveR);
+		ActualiseItem (Equipment.Legs);
 	}
 
 
@@ -53,9 +53,9 @@ public class Player_Stat : MonoBehaviour {
 	}
 	
 
-	void ActualiseItem(Item item)
+	void ActualiseItem(ISItem item)
 	{
-		foreach(var stat in item.item.Stats)
+		foreach(var stat in item.Stats)
 		{
 			Stat st = Stats.Find(i => i.Identity == stat.Identity);
 			if(st != null)

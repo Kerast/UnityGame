@@ -12,10 +12,14 @@ public class Character_ItemList : MonoBehaviour, IPointerEnterHandler, IPointerE
 	public Color OverColor;
 	public ISItem Item;
 	public GameObject StatListElement;
+    public GameObject SkinListElement;
 
 
-	// Use this for initialization
-	void Start () {
+
+
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
@@ -73,7 +77,8 @@ public class Character_ItemList : MonoBehaviour, IPointerEnterHandler, IPointerE
 		GameObject Title = GameObject.Find ("SelectedItemTitlePanel");
 		GameObject ItemPreview = GameObject.Find ("ItemPreview");
 
-		Title.transform.GetChild (0).GetComponent<Image> ().sprite = Item.Icon;
+        //TITLE DU PANNEAU
+        Title.transform.GetChild (0).GetComponent<Image> ().sprite = Item.Icon;
 		Title.transform.GetChild (2).GetComponent<Text> ().text = Item.Name;
 
 		for (int i = 0; i < ItemPreview.transform.childCount; i++) 
@@ -89,22 +94,45 @@ public class Character_ItemList : MonoBehaviour, IPointerEnterHandler, IPointerE
 
 
 
-
+        //MODEL 3D DU PANNEAU
 		GameObject temp = Instantiate (Item.Skins[0]);
-		temp.transform.SetParent (ItemPreview.transform);
+        Item.SelectedSkin = Item.Skins[0];
+        temp.transform.SetParent (ItemPreview.transform);
 		temp.transform.position = ItemPreview.transform.position;
 		temp.transform.rotation = ItemPreview.transform.rotation;
 		temp.transform.localScale = new Vector3 (1, 1, 1);
 
 
-		GameObject contentStatsGo = GameObject.Find("SelectedItemStatPanelContent").gameObject;
+
+        //SkinLIst
+        GameObject contentSkinssGo = GameObject.Find("SkinScrollerContent").gameObject;
+        for (int i = 0; i < contentSkinssGo.transform.childCount; i++)
+        {
+            Destroy(contentSkinssGo.transform.GetChild(i).gameObject);
+        }
+
+
+
+        for (int i = 0; i < Item.Skins.Count; i++)
+        {
+            GameObject skinElement = Instantiate(SkinListElement);
+            skinElement.GetComponent<Character_SkinList>().Skin = Item.Skins[i];
+            skinElement.transform.GetChild(0).GetComponent<Text>().text = Item.Skins[i].name;
+            skinElement.transform.SetParent(contentSkinssGo.transform);
+            skinElement.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+
+
+        //STAT DU PANNEAU
+        GameObject contentStatsGo = GameObject.Find("SelectedItemStatPanelContent").gameObject;
 		for (int i = 0; i < contentStatsGo.transform.childCount; i++) 
 		{
 			Destroy(contentStatsGo.transform.GetChild(i).gameObject);
 		}
 
 
-
+      
 		for(int i = 0; i < Item.Stats.Count; i++)
 		{
 			GameObject statElement = Instantiate(StatListElement);
@@ -117,6 +145,8 @@ public class Character_ItemList : MonoBehaviour, IPointerEnterHandler, IPointerE
 
 
 	}
+
+
 
 
 

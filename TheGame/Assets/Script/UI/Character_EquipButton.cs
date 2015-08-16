@@ -30,8 +30,8 @@ public class Character_EquipButton : MonoBehaviour {
 	void EquipItem()
 	{
 		GameObject go = GameObject.FindGameObjectWithTag ("SelectedItem_ItemsListContent");
-		GameManager_Assets assets = GameObject.Find ("GameManager").GetComponent<GameManager_Assets> ();
-		assets.EquipItem(go.GetComponent<Character_ItemList>().Item);
+		Player_Equipment playerequip = GameObject.Find ("Player_Dummy").GetComponent<Player_Equipment> ();
+        playerequip.EquipItem(go.GetComponent<Character_ItemList>().Item);
 		
 	}
 }
