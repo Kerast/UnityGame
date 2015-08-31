@@ -44,9 +44,9 @@ public class Character_DisplayEquipment : MonoBehaviour {
 		{
 
 			Image slotImage = Slots.Find(j => j.GetComponent<Character_ItemSlot>().equipmentSlot == PlayerItems[i].EquipmentSlot).transform.GetChild(0).GetComponent<Image>();
-            if(PlayerItems[i].Icon != null)
-                slotImage.sprite = PlayerItems[i].Icon;
-           
+            if (PlayerItems[i].SelectedSkin.GetComponent<SkinInfo>().SkinIcon != null)
+                slotImage.sprite = PlayerItems[i].SelectedSkin.GetComponent<SkinInfo>().SkinIcon;
+
         }
 
 

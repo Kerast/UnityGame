@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class MainMenu_ButtonHome : MonoBehaviour {
 
     public GameObject CharacterMenu;
+    public GameObject InventoryMenu;
 
     public Camera Camera3dUI;
     public GameObject PlayerDummy;
@@ -20,9 +21,19 @@ public class MainMenu_ButtonHome : MonoBehaviour {
 
     void GoToHome()
     {
-        CharacterMenu.SetActive(false);
-        Camera3dUI.orthographic = false;
-        PlayerDummy.transform.position = GameObject.Find("MainMenuPosition").transform.position;
-        PlayerDummy.transform.rotation = GameObject.Find("MainMenuPosition").transform.rotation;
+
+        StartCoroutine(LoadHome());
+       
+    }
+
+
+    IEnumerator LoadHome()
+    {
+        CameraAnimator camAnim = GameObject.FindWithTag("MainCamera").GetComponent<CameraAnimator>();
+        camAnim.MoveCamera(camAnim.MainMenuPosition);
+        yield return new WaitForSeconds(1f);
+        camAnim.CloseAllMenus();
+
+        
     }
 }

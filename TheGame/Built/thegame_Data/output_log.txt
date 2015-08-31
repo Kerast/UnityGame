@@ -2,12 +2,12 @@ Mono path[0] = 'C:/Users/Jean-Baptiste/Documents/GitHub/UnityGame/TheGame/Built/
 Mono path[1] = 'C:/Users/Jean-Baptiste/Documents/GitHub/UnityGame/TheGame/Built/thegame_Data/Mono'
 Mono config path = 'C:/Users/Jean-Baptiste/Documents/GitHub/UnityGame/TheGame/Built/thegame_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Jean-Baptiste/Documents/GitHub/UnityGame/TheGame/Built/thegame_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55284
-Multi-casting "[IP] 192.168.1.33 [Port] 55284 [Flags] 3 [Guid] 1969475460 [EditorId] 1452026618 [Version] 1048832 [Id] WindowsPlayer(PC-JBC) [Debug] 1" to [225.0.0.222:54997]...
-Waiting for connection from host on [192.168.1.33:55284]...
-PlayerConnection accepted from [192.168.1.33] handle:0x290
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56460
-PlayerConnection already initialized - listening to [192.168.1.33:55284]
+PlayerConnection initialized network socket : 0.0.0.0 55124
+Multi-casting "[IP] 192.168.1.33 [Port] 55124 [Flags] 3 [Guid] 3939703511 [EditorId] 3139694592 [Version] 1048832 [Id] WindowsPlayer(PC-JBC) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [192.168.1.33:55124]...
+PlayerConnection accepted from [192.168.1.33] handle:0x274
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56511
+PlayerConnection already initialized - listening to [192.168.1.33:55124]
 Initialize engine version: 5.1.2f1 (afd2369b692a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -26,22 +26,23 @@ Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Bui
 Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.116 seconds
+- Completed reload, in  0.154 seconds
 desktop: 3840x2160 60Hz; virtual: 7680x2376 at -3840,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\System.dll (this message is harmless)
+PlayerConnection accepted from [192.168.1.33] handle:0x3e0
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 15634 -> priority: 1 
-  Thread -> id: 140b8 -> priority: 1 
+  Thread -> id: 36a48 -> priority: 1 
+  Thread -> id: 36240 -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 8.713415 ms
-System memory in use before: 14.1 MB.
-System memory in use after: 14.1 MB.
+UnloadTime: 4.649096 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.2 MB.
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1012.
-Total: 0.690144 ms (FindLiveObjects: 0.063040 ms CreateObjectMapping: 0.034522 ms MarkObjects: 0.571568 ms  DeleteObjects: 0.013208 ms)
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1890.
+Total: 0.914989 ms (FindLiveObjects: 0.098163 ms CreateObjectMapping: 0.050132 ms MarkObjects: 0.747181 ms  DeleteObjects: 0.009305 ms)
 
 Waiting for finish

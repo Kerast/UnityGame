@@ -18,7 +18,9 @@ namespace TheGame.ItemSystem
 		ShoulderR,
 		ShoulderL,
 		GloveR,
-		GloveL
+		GloveL,
+        Other
+
 	
 	}
 

@@ -33,8 +33,11 @@ public class Login_ConnectButton : MonoBehaviour {
         WebServices webservices = GameObject.Find("WebServices").GetComponent<WebServices>();
         string username = UsernameText.text;
         string password = PasswordInputField.text;
-        //StartCoroutine(webservices.ConnectionToServer(username, password));
-        StartCoroutine(webservices.ConnectionToServer("kerast", "jbbb1565"));
+        StartCoroutine(webservices.ConnectionToServer(username, password));
+        //StartCoroutine(webservices.ConnectionToServer("kerast", "jbbb1565"));
+
+
+        
 
     }
 

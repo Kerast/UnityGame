@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TheGame.ItemSystem;
+using Boomlagoon.JSON;
 
 
 public class Player_Equipment : MonoBehaviour {
-	
-	public ISItem Weapon;
+
+
+    public ISItem Weapon;
 	public ISItem Helmet;
 	public ISItem Torse;
 	public ISItem Belt;
@@ -36,6 +38,8 @@ public class Player_Equipment : MonoBehaviour {
 
     void Awake()
     {
+        
+        
         //Tout nu
         List<ISItem> Items = GameObject.Find("GameManager").GetComponent<GameManager_Assets>().Items;
         EquipItem(Items.ElementAt(0), true);
@@ -50,6 +54,10 @@ public class Player_Equipment : MonoBehaviour {
 
     }
 
+    void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
 
     public void EquipItem(ISItem item, bool isLoading)
@@ -154,6 +162,40 @@ public class Player_Equipment : MonoBehaviour {
         }
     }
 
+    public void LoadEquipmentFromDBData(JSONObject data)
+    {
+       
+        GameManager_Assets assets = GameObject.Find("GameManager").GetComponent<GameManager_Assets>();
 
+        JSONArray equipments = data.GetArray("equipments");
+
+        List<List<string>> Equipments = new List<List<string>>();
+        
+
+        foreach (var equipment in equipments)
+        {
+            JSONArray items = equipment.Obj.GetArray("items");
+            selectedEquipment = 0;
+            List<string> itemsList = new List<string>();
+            Equipments.Add(itemsList);
+            equipmentsIDs.Add((int)equipment.Obj.GetNumber("character_equipment_id"));
+            foreach (var item in items)
+            {
+                string itemName = item.Obj.GetString("equiped_item_name");
+                string itemSkinName = item.Obj.GetString("equiped_item_skin");
+
+
+                ISItem itemToLoad = assets.Items.Find(i => i.Identity == itemName);
+                if (itemToLoad != null)
+                {
+                    itemToLoad.SelectedSkin = itemToLoad.Skins.Find(i => i.name == itemSkinName);
+                    EquipItem(itemToLoad, true);
+                }
+
+            }
+        }
+
+        
+    }
 
 }

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class MainMenu_ButtonCharacter : MonoBehaviour {
 
 	public GameObject CharacterMenu;
-
-    public Camera Camera3dUI;
+    public GameObject InventoryMenu;
     public GameObject PlayerDummy;
+
 
 
     // Use this for initialization
@@ -18,16 +18,34 @@ public class MainMenu_ButtonCharacter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		
 	}
 
 
 	void GoToCharacterMenu()
-	{		
-        CharacterMenu.SetActive (true);
-
-        Camera3dUI.orthographic = true;
-        PlayerDummy.transform.position = GameObject.Find("CharacterMenuPosition").transform.position;
-        PlayerDummy.transform.rotation = GameObject.Find("CharacterMenuPosition").transform.rotation;
+	{
+              
+        StartCoroutine(LoadInventory());       
+      
     }
+
+    IEnumerator LoadInventory()
+    {
+
+        CameraAnimator camAnim = GameObject.FindWithTag("MainCamera").GetComponent<CameraAnimator>();
+        camAnim.MoveCamera(camAnim.CharacterPosition);
+        yield return new WaitForSeconds(1f);
+        camAnim.ChangeMenu(camAnim.Menus[0]);
+        CharacterMenu.SetActive(true);
+        InventoryMenu.SetActive(false);
+
+  
+
+
+        yield return StartCoroutine(GameObject.Find("WebServices").GetComponent<WebServices>().GetUserInventory());
+        GameObject.Find("CharacterMenu").GetComponent<Character_Menu>().DisplayItems();
+
+    }
+
+
+
 }

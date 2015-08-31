@@ -11,9 +11,10 @@ public class Player_NetworkSetup : NetworkBehaviour {
 		if (isLocalPlayer) {
 
 			GetComponent<Player_Controller>().enabled = true;
+			//GetComponent<Player_SyncPosition>().enabled = true;
 			FPSCharacterCam.enabled = true;
 			AudioListener.enabled=true;
-			FPSCharacterCam.GetComponent<MouseAimCamera>().enabled = true;
+			//FPSCharacterCam.GetComponent<MouseAimCamera>().enabled = true;
 
 		}
 	}

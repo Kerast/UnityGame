@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TheGame.ItemSystem;
@@ -78,8 +79,8 @@ public class Character_ItemList : MonoBehaviour, IPointerEnterHandler, IPointerE
 		GameObject ItemPreview = GameObject.Find ("ItemPreview");
 
         //TITLE DU PANNEAU
-        Title.transform.GetChild (0).GetComponent<Image> ().sprite = Item.Icon;
-		Title.transform.GetChild (2).GetComponent<Text> ().text = Item.Name;
+        Title.transform.GetChild(0).GetComponent<Image>().sprite = Item.SelectedSkin.GetComponent<SkinInfo>().SkinIcon;
+		Title.transform.GetChild (1).GetComponent<Text> ().text = Item.Name;
 
 		for (int i = 0; i < ItemPreview.transform.childCount; i++) 
 		{
@@ -112,7 +113,7 @@ public class Character_ItemList : MonoBehaviour, IPointerEnterHandler, IPointerE
         }
 
 
-
+        List<InventoryItem> userSkins = GameObject.Find("WebServices").GetComponent<WebServices>().Skins;
         for (int i = 0; i < Item.Skins.Count; i++)
         {
             GameObject skinElement = Instantiate(SkinListElement);
@@ -120,6 +121,13 @@ public class Character_ItemList : MonoBehaviour, IPointerEnterHandler, IPointerE
             skinElement.transform.GetChild(0).GetComponent<Text>().text = Item.Skins[i].name;
             skinElement.transform.SetParent(contentSkinssGo.transform);
             skinElement.transform.localScale = new Vector3(1, 1, 1);
+
+            if (userSkins.Find(j => j.Identity == Item.Skins[i].GetComponent<SkinInfo>().Identity) == null && i != 0)
+            {
+                skinElement.SetActive(false);
+                skinElement.GetComponent<Image>().color = new Color(122, 122, 122, 255);
+            }
+           
         }
 
 

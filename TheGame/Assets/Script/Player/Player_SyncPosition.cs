@@ -28,7 +28,7 @@ public class Player_SyncPosition : NetworkBehaviour {
 
 	void Start()
 	{
-		nClient = GameObject.Find("NetworkManager").GetComponent<NetworkManager>().client;
+		nClient = GameObject.Find("CustomNetworkLobbyManager").GetComponent<NetworkLobbyManager>().client;
 		latencyText = GameObject.Find ("Latency Text").GetComponent<Text> ();
 	}
 

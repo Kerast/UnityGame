@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Analytics;
 using System.Collections;
 using System.Collections.Generic;
 using Boomlagoon.JSON;
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         UnityEngine.Object.DontDestroyOnLoad(gameObject);
+       
     }
 	
 	// Update is called once per frame
@@ -28,8 +30,12 @@ public class GameManager : MonoBehaviour {
     void LoadPlayerData()
     {
         Player_Equipment player_equip = GameObject.Find("Player_Dummy").GetComponent<Player_Equipment>();
-        
+        Player_Character player_character = GameObject.Find("Player_Dummy").GetComponent<Player_Character>();
+
+
+
         GameManager_Assets assets = GameObject.Find("GameManager").GetComponent<GameManager_Assets>();
+
 
 
         JSONObject playerData = GameObject.Find("WebServices").GetComponent<WebServices>().data;
@@ -37,7 +43,12 @@ public class GameManager : MonoBehaviour {
         JSONArray equipments = characters[0].Obj.GetArray("equipments");
 
         List<List<string>> Equipments = new List<List<string>>();
-        
+
+
+        player_character.UcUserId = (int) characters[0].Obj.GetNumber("uc_user_id");
+        player_character.CharacterId = (int) characters[0].Obj.GetNumber("character_id");
+        player_character.CharacterName= characters[0].Obj.GetString("name");
+
         foreach (var equipment in equipments)
         {
             JSONArray items =  equipment.Obj.GetArray("items");
@@ -60,7 +71,10 @@ public class GameManager : MonoBehaviour {
                                     
             }
         }
-       
+
+        GameObject.Find("Camera").transform.position = GameObject.Find("MainMenuPosition").transform.position;
+        GameObject.Find("Camera").transform.rotation = GameObject.Find("MainMenuPosition").transform.rotation;
+
 
     }
 }
