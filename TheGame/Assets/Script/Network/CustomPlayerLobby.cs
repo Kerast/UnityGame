@@ -8,20 +8,13 @@ public class CustomPlayerLobby : NetworkLobbyPlayer {
 
     public GameObject CanvasReadyPrefab;
     public GameObject CanvasReady;
-    public int playerCount = 1;
     bool checker= true;
 
-
-    void Start()
-    {
-        playerCount = 1;
-    }
     void Update()
     {
         if(isLocalPlayer)
         {
-            
-            if (GameObject.FindGameObjectsWithTag("PlayerLobby").Length == playerCount && checker)
+            if (GameObject.FindGameObjectsWithTag("PlayerLobby").Length ==2 && checker)
             {
                 if(CanvasReady != null)
                 {

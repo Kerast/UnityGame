@@ -2,12 +2,12 @@ Mono path[0] = 'C:/Users/Jean-Baptiste/Documents/GitHub/UnityGame/TheGame/Built/
 Mono path[1] = 'C:/Users/Jean-Baptiste/Documents/GitHub/UnityGame/TheGame/Built/thegame_Data/Mono'
 Mono config path = 'C:/Users/Jean-Baptiste/Documents/GitHub/UnityGame/TheGame/Built/thegame_Data/Mono/etc'
 PlayerConnection initialized from C:/Users/Jean-Baptiste/Documents/GitHub/UnityGame/TheGame/Built/thegame_Data (debug = 0)
-PlayerConnection initialized network socket : 0.0.0.0 55318
-Multi-casting "[IP] 192.168.1.33 [Port] 55318 [Flags] 3 [Guid] 4082152469 [EditorId] 3686121869 [Version] 1048832 [Id] WindowsPlayer(PC-JBC) [Debug] 1" to [225.0.0.222:54997]...
-Waiting for connection from host on [192.168.1.33:55318]...
-Timed out. Continuing without host connection.
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56469
-PlayerConnection already initialized - listening to [192.168.1.33:55318]
+PlayerConnection initialized network socket : 0.0.0.0 55124
+Multi-casting "[IP] 192.168.1.33 [Port] 55124 [Flags] 3 [Guid] 3939703511 [EditorId] 3139694592 [Version] 1048832 [Id] WindowsPlayer(PC-JBC) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [192.168.1.33:55124]...
+PlayerConnection accepted from [192.168.1.33] handle:0x274
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56511
+PlayerConnection already initialized - listening to [192.168.1.33:55124]
 Initialize engine version: 5.1.2f1 (afd2369b692a)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -20,63 +20,29 @@ Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Bui
 Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.062 seconds
+- Completed reload, in  0.154 seconds
 desktop: 3840x2160 60Hz; virtual: 7680x2376 at -3840,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Jean-Baptiste\Documents\GitHub\UnityGame\TheGame\Built\thegame_Data\Managed\System.dll (this message is harmless)
-PlayerConnection accepted from [192.168.37.1] handle:0x76c
+PlayerConnection accepted from [192.168.1.33] handle:0x3e0
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 3db8 -> priority: 1 
-  Thread -> id: 683c -> priority: 1 
-The referenced script on this Behaviour is missing!
- 
-(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1715)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1715)
-
+  Thread -> id: 36a48 -> priority: 1 
+  Thread -> id: 36240 -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.205158 ms
-System memory in use before: 28.4 MB.
-System memory in use after: 28.6 MB.
+UnloadTime: 4.649096 ms
+System memory in use before: 17.1 MB.
+System memory in use after: 17.2 MB.
 
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 2447.
-Total: 1.888212 ms (FindLiveObjects: 0.104767 ms CreateObjectMapping: 0.100564 ms MarkObjects: 1.623742 ms  DeleteObjects: 0.052833 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.470286 ms
-System memory in use before: 34.8 MB.
-System memory in use after: 34.9 MB.
-
-Unloading 123 unused Assets to reduce memory usage. Loaded Objects now: 1271.
-Total: 0.860652 ms (FindLiveObjects: 0.056436 ms CreateObjectMapping: 0.049231 ms MarkObjects: 0.713858 ms  DeleteObjects: 0.039925 ms)
-
-Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:60138}
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.Component:get_gameObject ()
-  at UnityEngine.Networking.NetworkServer.DestroyObject (UnityEngine.Networking.NetworkIdentity uv) [0x0005c] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1388 
-  at UnityEngine.Networking.NetworkServer.DestroyPlayersForConnection (UnityEngine.Networking.NetworkConnection conn) [0x00049] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:1351 
-  at UnityEngine.Networking.NetworkManager.OnServerDisconnect (UnityEngine.Networking.NetworkConnection conn) [0x00000] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:693 
-  at UnityEngine.Networking.NetworkLobbyManager.OnServerDisconnect (UnityEngine.Networking.NetworkConnection conn) [0x00000] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkLobbyManager.cs:229 
-  at UnityEngine.Networking.NetworkManager.OnServerDisconnectInternal (UnityEngine.Networking.NetworkMessage netMsg) [0x00014] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkManager.cs:587 
-  at UnityEngine.Networking.NetworkMessageHandlers.InvokeHandler (Int16 msgType, UnityEngine.Networking.NetworkConnection conn, UnityEngine.Networking.NetworkReader reader, Int32 channelId) [0x0004f] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkMessageHandlers.cs:73 
-  at UnityEngine.Networking.NetworkMessageHandlers.InvokeHandlerNoData (Int16 msgType, UnityEngine.Networking.NetworkConnection conn) [0x00000] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkMessageHandlers.cs:60 
-  at UnityEngine.Networking.NetworkServer.InternalUpdate () [0x00287] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:681 
-  at UnityEngine.Networking.NetworkServer.Update () [0x0000c] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkServer.cs:514 
-  at UnityEngine.Networking.NetworkIdentity.UNetStaticUpdate () [0x00000] in C:\buildslave\unity\build\Extensions\Networking\Runtime\NetworkIdentity.cs:724 
- 
-(Filename: C:/buildslave/unity/build/Extensions/Networking/Runtime/NetworkServer.cs Line: 1388)
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1890.
+Total: 0.914989 ms (FindLiveObjects: 0.098163 ms CreateObjectMapping: 0.050132 ms MarkObjects: 0.747181 ms  DeleteObjects: 0.009305 ms)
 
 Waiting for finish
