@@ -20,6 +20,11 @@ public class Player_Controller : MonoBehaviour {
 	}
 
 
+
+
+
+
+
 }
 
 

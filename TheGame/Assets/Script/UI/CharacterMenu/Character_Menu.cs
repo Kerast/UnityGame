@@ -10,7 +10,7 @@ public class Character_Menu : MonoBehaviour {
 	public GameObject ItemListPrefab; 
 	// Use this for initialization
 	void Start () {
-		
+		DisplayItems();
 	}
 	
 	// Update is called once per frame
@@ -26,19 +26,24 @@ public class Character_Menu : MonoBehaviour {
 
 		}
 
-        List<InventoryItem> items = GameObject.Find("WebServices").GetComponent<WebServices>().Items;
+		List<ISItem> Items = new List<ISItem> ();
+		Items = GameObject.Find ("GameManager").GetComponent<GameManager_Assets> ().Items;
 
-		for (int i = 0; i < items.Count; i++) 
+		for (int i = 0; i < Items.Count; i++) 
 		{
-			
+			if(Items[i].Name != "Nothing")
+			{
 				GameObject listItem = Instantiate(ItemListPrefab);
 				listItem.transform.SetParent(ListItemsPanel.transform);
-				listItem.transform.GetChild(1).GetComponent<Image>().sprite = items[i].Item.SelectedSkin.GetComponent<SkinInfo>().SkinIcon;
-				listItem.transform.GetChild(2).GetComponent<Text>().text = items[i].Item.Name;
+				listItem.transform.GetChild(0).GetComponent<Image>().sprite = Items[i].Icon;
+				listItem.transform.GetChild(2).GetComponent<Text>().text = Items[i].Name;
 				listItem.transform.localScale = new Vector3(1,1,1);
-				listItem.transform.name = "listItemElement_" + items[i].Item.Identity;
-				listItem.GetComponent<Character_ItemList>().Item = items[i].Item;
-           			
+				listItem.transform.name = "listItemElement_" + Items[i].Identity;
+				listItem.GetComponent<Character_ItemList>().Item = Items[i];
+			}
+
+
+			
 		}
 
 	}

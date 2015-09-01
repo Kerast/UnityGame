@@ -11,27 +11,16 @@ namespace TheGame.ItemSystem
 	{
 		[SerializeField] string _identity ;
 		[SerializeField] string _name ;
-        [SerializeField] ItemType _type ;
+		[SerializeField] Sprite _icon ;
+		[SerializeField] ISQuality _quality ;
 		[SerializeField] EquipmentSlot _equipmentSlot;
 
 		[SerializeField] List< Stat> _stats;
 		[SerializeField] List<GameObject> _skins;
         [SerializeField] GameObject _selectedSkin;
 
-        public ISItem()
-        {
+		
 
-        }
-        public ISItem(ISItem clone)
-        {
-            _identity = clone.Identity;
-            _name = clone.Name;
-            _type = clone.Type;
-            _equipmentSlot = clone.EquipmentSlot;
-            _stats = clone.Stats;
-            _skins = clone.Skins;
-            _selectedSkin = clone.SelectedSkin;
-        }
 	
 		#region IISItem implementation
 
@@ -53,8 +42,23 @@ namespace TheGame.ItemSystem
 			}
 		}
 
+		public Sprite Icon {
+			get {
+				return _icon;
+			}
+			set {
+				_icon = value;
+			}
+		}
 
-
+		public ISQuality Quality {
+			get {
+				return _quality;
+			}
+			set {
+				_quality = value;
+			}
+		}
 
 		public EquipmentSlot EquipmentSlot{
 			get {
@@ -65,20 +69,7 @@ namespace TheGame.ItemSystem
 			}
 		}
 
-
-        public ItemType Type
-        {
-            get
-            {
-                return _type;
-            }
-            set
-            {
-                _type = value;
-            }
-        }
-
-        public List<Stat> Stats{
+		public List<Stat> Stats{
 			get {
 				return _stats;
 			}
@@ -117,12 +108,4 @@ namespace TheGame.ItemSystem
 
 
     }
-}
-
-
-public enum ItemType
-{
-    Equipment,
-    Crate
-
 }

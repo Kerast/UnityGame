@@ -96,7 +96,7 @@ public class JSONObjectTester : MonoBehaviour {
     ""taglib-location"": ""/WEB-INF/tlds/cofax.tld""}}}";
 
 	void Start() {
-        infoText.gameObject.SetActive(false);
+		infoText.gameObject.active = false;
 
 		//JSONObject usage example:
 
