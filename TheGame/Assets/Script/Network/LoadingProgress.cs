@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class LoadingProgress : NetworkBehaviour {
 
     [SyncVar] public int CountPlayerLoaded = 0;
-    public int nbPlayers = 2;
+    public int nbPlayers = 1;
 
     public List<GameObject> Positions;
 
@@ -88,6 +88,9 @@ public class LoadingProgress : NetworkBehaviour {
         for (int i = 0; i < players.Length; i++)
         {
             players[i].GetComponent<Player_NetworkSetup>().enabled = true;
+            players[i].transform.position = GameObject.Find("Spawn1").transform.position;
         }
     }
+
+  
 }

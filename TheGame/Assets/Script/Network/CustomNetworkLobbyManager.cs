@@ -148,7 +148,7 @@ public class CustomNetworkLobbyManager : NetworkLobbyManager {
 
     public override bool OnLobbyServerSceneLoadedForPlayer(GameObject lobbyPlayer, GameObject gamePlayer)
     {        
-        //var player = gamePlayer.GetComponent<Player_ID>().aze = 999;
+        
         var playerequip = gamePlayer.GetComponent<Player_Equipment>();
         playerequip.EquipItem(GameObject.Find("GameManager").GetComponent<GameManager_Assets>().Items[11], true);
         //player.myColor = cc.myColor;
